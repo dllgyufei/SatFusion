@@ -8,8 +8,8 @@ SatFusion achieves state-of-the-art performance on both multi-temporal and multi
 ### Code Structure
 ```
 SatFusion/
-├── Inference.py
-├── Train.py
+├── Train_Val_Test.py
+├── train.py
 └── src/
     ├── __init__.py
     ├── dataset.py
@@ -52,7 +52,7 @@ pip install -r requirements.txt
 ```
 To run the block of Pan-Mamba , Vision-Mamba is required.You can refer to the guidance in [Pan-Mamba](https://github.com/alexhe101/pan-mamba) and this blog [Install Vision Mamba on Linux](https://zhuanlan.zhihu.com/p/687359086).
 ### Dataset
-The dataset we used is Worldstrat.Fetch the entire dataset on [https://worldstrat.github.io/](https://worldstrat.github.io/).Here,we provide an example dataset to test the project as *dataset_example*.The files in *pretrained_model* lists the pictures involving our framework for different conditions.
+The dataset we used is Worldstrat.Fetch the entire dataset on [https://worldstrat.github.io/](https://worldstrat.github.io/).
 ### Train
 Set the params *root* as your root dir of the dataset and *list_of_aios* as "pretrained_model/final_split.csv" in file *Train.py*.Run *Train.py* to train the model;    
 The process of training is visible on [Weights & Biases](wandb.ai).Replace the *project* and *entity* in *src/train.py*.For details, refer to [Weights & Biases quickstart guide](https://wandb.ai/quickstart?).
