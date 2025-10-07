@@ -2,14 +2,14 @@
 import subprocess
 import os
 
-# 设置环境变量（和你原来保持一致）
-os.environ['CUDA_VISIBLE_DEVICES'] = '7'
-os.environ["http_proxy"] = "http://127.0.0.1:7890"
-os.environ["https_proxy"] = "http://127.0.0.1:7890"
+# 设置环境变量
+os.environ['CUDA_VISIBLE_DEVICES'] = '*'
+os.environ["http_proxy"] = "***********"
+os.environ["https_proxy"] = "***********"
 
 # 基础命令
 default_train_command = [
-    "python", "/home/tongyufei/SatFusion/Code_WWW/train.py",   # 直接调用 train.py
+    "python", "/train.py",   # 调用 train.py
     "--accelerator", "gpu",
     "--devices", "1",
     "--precision", "16",
@@ -21,6 +21,7 @@ default_train_command = [
 
     # Model/Hyperparameters
     "--model", "ourframework",
+    "--hidden_channels", "128",
     "--zoom_factor", "2",
     "--shift_px", "2",
     "--shift_mode", "lanczos",
@@ -47,72 +48,21 @@ default_train_command = [
     "--list_of_aois", "pretrained_model/final_split.csv",
 ]
 
-# 定义不同实验配置
+''' 
+    ----------------------------------Readme---------------------------------------------------------------------------------------
+        # use artificial dataset
+        + ["--temporal_noise","0.30"]
+        + ["--temporal_jitter","0.15"]
+        + ["--use_artificial_dataset"]
+    ----------------------------------Readme---------------------------------------------------------------------------------------
+'''
 
-# 检验 SatFusion 要比 pansharpening，在 wald 协议下，不差（如果能好最好）
 runs = [
-    default_train_command + ["--ourMISRmodel", "TRNet", "--ourSharpeningmodel", "PSIT", "--hidden_channels",
-                             "128", "--use_artificial_dataset", "--temporal_jitter", "1"],
-    default_train_command + ["--ourMISRmodel", "TRNet", "--ourSharpeningmodel", "PSIT", "--hidden_channels",
-                             "128", "--use_artificial_dataset", "--temporal_jitter", "2"],
-    default_train_command + ["--ourMISRmodel", "TRNet", "--ourSharpeningmodel", "PSIT", "--hidden_channels",
-                             "128", "--use_artificial_dataset", "--temporal_jitter", "3"],
-    default_train_command + ["--ourMISRmodel", "TRNet", "--ourSharpeningmodel", "PSIT", "--hidden_channels",
-                             "128", "--use_artificial_dataset", "--temporal_jitter", "4"],
-    default_train_command + ["--ourMISRmodel", "TRNet", "--ourSharpeningmodel", "PSIT", "--hidden_channels",
-                             "128", "--use_artificial_dataset", "--temporal_jitter", "5"],
+    # # do not set below params both None
+    # ourMISRmodel other choice: None,HighResNet,RAMS,TRNet
+    # ourSharpeningmodel other choice: None,PNN,PANNet,PSIT(INNformer is PSIT here)
+    default_train_command + ["--ourMISRmodel", "SRCNN", "--ourSharpeningmodel", "Pan_Mamba"], 
 ]
-
-# 3
-# default_train_command + ["--ourMISRmodel", "None", "--ourSharpeningmodel", "PANNet", "--hidden_channels",
-#                          "128", "--use_artificial_dataset", "--temporal_jitter", "1"],
-# default_train_command + ["--ourMISRmodel", "None", "--ourSharpeningmodel", "PANNet", "--hidden_channels",
-#                          "128", "--use_artificial_dataset", "--temporal_jitter", "2"],
-# default_train_command + ["--ourMISRmodel", "None", "--ourSharpeningmodel", "PANNet", "--hidden_channels",
-#                          "128", "--use_artificial_dataset", "--temporal_jitter", "3"],
-# default_train_command + ["--ourMISRmodel", "None", "--ourSharpeningmodel", "PANNet", "--hidden_channels",
-#                          "128", "--use_artificial_dataset", "--temporal_jitter", "4"],
-# default_train_command + ["--ourMISRmodel", "None", "--ourSharpeningmodel", "PANNet", "--hidden_channels",
-#                          "128", "--use_artificial_dataset", "--temporal_jitter", "5"],
-
-# 4
-# default_train_command + ["--ourMISRmodel", "SRCNN", "--ourSharpeningmodel", "PANNet", "--hidden_channels",
-#                          "128", "--use_artificial_dataset", "--temporal_jitter", "1"],
-# default_train_command + ["--ourMISRmodel", "SRCNN", "--ourSharpeningmodel", "PANNet", "--hidden_channels",
-#                          "128", "--use_artificial_dataset", "--temporal_jitter", "2"],
-# default_train_command + ["--ourMISRmodel", "SRCNN", "--ourSharpeningmodel", "PANNet", "--hidden_channels",
-#                          "128", "--use_artificial_dataset", "--temporal_jitter", "3"],
-# default_train_command + ["--ourMISRmodel", "SRCNN", "--ourSharpeningmodel", "PANNet", "--hidden_channels",
-#                          "128", "--use_artificial_dataset", "--temporal_jitter", "4"],
-# default_train_command + ["--ourMISRmodel", "SRCNN", "--ourSharpeningmodel", "PANNet", "--hidden_channels",
-#                          "128", "--use_artificial_dataset", "--temporal_jitter", "5"],
-
-# 6
-# default_train_command + ["--ourMISRmodel", "None", "--ourSharpeningmodel", "PSIT", "--hidden_channels",
-#                          "128", "--use_artificial_dataset", "--temporal_jitter", "1"],
-# default_train_command + ["--ourMISRmodel", "None", "--ourSharpeningmodel", "PSIT", "--hidden_channels",
-#                          "128", "--use_artificial_dataset", "--temporal_jitter", "2"],
-# default_train_command + ["--ourMISRmodel", "None", "--ourSharpeningmodel", "PSIT", "--hidden_channels",
-#                          "128", "--use_artificial_dataset", "--temporal_jitter", "3"],
-# default_train_command + ["--ourMISRmodel", "None", "--ourSharpeningmodel", "PSIT", "--hidden_channels",
-#                          "128", "--use_artificial_dataset", "--temporal_jitter", "4"],
-# default_train_command + ["--ourMISRmodel", "None", "--ourSharpeningmodel", "PSIT", "--hidden_channels",
-#                          "128", "--use_artificial_dataset", "--temporal_jitter", "5"],
-
-# 7
-# default_train_command + ["--ourMISRmodel", "TRNet", "--ourSharpeningmodel", "PSIT", "--hidden_channels",
-#                          "128", "--use_artificial_dataset", "--temporal_jitter", "1"],
-# default_train_command + ["--ourMISRmodel", "TRNet", "--ourSharpeningmodel", "PSIT", "--hidden_channels",
-#                          "128", "--use_artificial_dataset", "--temporal_jitter", "2"],
-# default_train_command + ["--ourMISRmodel", "TRNet", "--ourSharpeningmodel", "PSIT", "--hidden_channels",
-#                          "128", "--use_artificial_dataset", "--temporal_jitter", "3"],
-# default_train_command + ["--ourMISRmodel", "TRNet", "--ourSharpeningmodel", "PSIT", "--hidden_channels",
-#                          "128", "--use_artificial_dataset", "--temporal_jitter", "4"],
-# default_train_command + ["--ourMISRmodel", "TRNet", "--ourSharpeningmodel", "PSIT", "--hidden_channels",
-#                          "128", "--use_artificial_dataset", "--temporal_jitter", "5"],
-
-
-
 
 # 顺序执行
 for i, run in enumerate(runs):
