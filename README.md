@@ -53,11 +53,9 @@ pip install -r requirements.txt
 To run the block of Pan-Mamba , Vision-Mamba is required.You can refer to the guidance in [Pan-Mamba](https://github.com/alexhe101/pan-mamba) and this blog [Install Vision Mamba on Linux](https://zhuanlan.zhihu.com/p/687359086).
 ### Dataset
 The dataset we used is Worldstrat.Fetch the entire dataset on [https://worldstrat.github.io/](https://worldstrat.github.io/).
-### Train
-Set the params *root* as your root dir of the dataset and *list_of_aios* as "pretrained_model/final_split.csv" in file *Train.py*.Run *Train.py* to train the model;    
+### Train val and test
+Set the params *root* as your root dir of the dataset and *list_of_aios* as "pretrained_model/final_split.csv" in file *Train_Val_Test*.Run *Train_Val_Test* to train val and test the model;    
 The process of training is visible on [Weights & Biases](wandb.ai).Replace the *project* and *entity* in *src/train.py*.For details, refer to [Weights & Biases quickstart guide](https://wandb.ai/quickstart?).
-### Inference
-Set *list_of_aios* as "pretrained_model/predict_split.csv" or replace it with the aios you want.Load the results of training from folder *checkpoints* and set *checkpoint_path* in *Inference.py* as its path.Ensure all other parameters remain consistent with the training configuration.We provide a trained checkpoint of TRNet with INNformer for you to test.
 ## Issues and Contributions
 If you encounter any issues or have suggestions for improvement, please feel free to open an issue in the GitHub issue tracker.   
   
