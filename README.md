@@ -99,7 +99,6 @@ To run the block of Pan-Mamba , Vision-Mamba is required.You can refer to the gu
 
 
 ### 🌍 Dataset
-The dataset we used is Worldstrat.Fetch the entire dataset on [https://worldstrat.github.io/](https://worldstrat.github.io/).
 We conduct experiments on the WorldStrat, WV3, QB, and GF2 datasets.
 The complete WorldStrat dataset can be downloaded from [https://worldstrat.github.io/](https://worldstrat.github.io/), while the WV3, QB, and GF2 datasets are available at [https://liangjiandeng.github.io/PanCollection.html](https://liangjiandeng.github.io/PanCollection.html).
 
