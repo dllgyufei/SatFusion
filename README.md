@@ -54,7 +54,7 @@ To run the block of Pan-Mamba , Vision-Mamba is required.You can refer to the gu
 ### Dataset
 The dataset we used is Worldstrat.Fetch the entire dataset on [https://worldstrat.github.io/](https://worldstrat.github.io/).
 ### Train val and test
-Set the params *root* as your root dir of the dataset and *list_of_aios* as "pretrained_model/final_split.csv" in file *Train_Val_Test*.Run *Train_Val_Test* to train val and test the model;    
+Set the params *root* as your root dir of the dataset and *list_of_aios* as "pretrained_model/final_split.csv" in file *Train_Val_Test.py*.Run *Train_Val_Test.py* to train val and test the model;    
 The process of training is visible on [Weights & Biases](wandb.ai).Replace the *project* and *entity* in *src/train.py*.For details, refer to [Weights & Biases quickstart guide](https://wandb.ai/quickstart?).
 ## Issues and Contributions
 If you encounter any issues or have suggestions for improvement, please feel free to open an issue in the GitHub issue tracker.   
