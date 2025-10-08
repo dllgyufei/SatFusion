@@ -106,7 +106,7 @@ This repository provides the full experimental code for the WorldStrat dataset. 
 
 
 ### 🚀 Training, Validation & Testing
-Set the params *root* as your root dir of the dataset and *list_of_aios* as "pretrained_model/final_split.csv" in file *Train_Val_Test.py*.Run *Train_Val_Test.py* to train val and test the model;    
+Set the params *root* as your root dir of the dataset and *list_of_aios* as "pretrained_model/final_split.csv" in file *Train_Val_Test.py*.Run *Train_Val_Test.py* to train, validate, and test the model.    
 The process of training is visible on [Weights & Biases](wandb.ai).Replace the *project* and *entity* in *src/train.py*.For details, refer to [Weights & Biases quickstart guide](https://wandb.ai/quickstart?).
 
 
