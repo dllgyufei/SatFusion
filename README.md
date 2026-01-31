@@ -11,7 +11,7 @@ Unlike existing approaches that treat **Multi-Frame Super-Resolution (MFSR)** an
 
 **SatFusion*** is an enhanced variant of SatFusion that further improves robustness under **temporal misalignment and real-world degradations** by incorporating **PAN-guided multi-frame feature encoding**.
 
-![](G:\Code_SatFusion\SatFusion\SatFuion.png)
+![](SatFuion.png)
 
 ---
 
