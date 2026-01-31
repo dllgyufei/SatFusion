@@ -2,7 +2,7 @@
 import subprocess
 import os
 
-# 设置环境变量
+# 设置环境变量, 选择GPU编号
 os.environ['CUDA_VISIBLE_DEVICES'] = '6'
 os.environ["http_proxy"] = "http://127.0.0.1:1234"
 os.environ["https_proxy"] = "http://127.0.0.1:1234"
