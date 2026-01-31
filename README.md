@@ -17,25 +17,24 @@ Unlike existing approaches that treat **Multi-Frame Super-Resolution (MFSR)** an
 
 ## 🔬 Key Features
 - **Unified Fusion Framework** — Joint multi-frame and multi-source optimization within a single architecture  
-- **Multi-Temporal Image Fusion (MTIF)** — Aggregates complementary information from multiple LRMS frames  
+- **Multi-Frame Image Fusion (MFIF)** — Aggregates complementary information from multiple LRMS frames  
 - **Multi-Source Image Fusion (MSIF)** — Injects fine-grained spatial details from high-resolution PAN images  
 - **Fusion Composition Module** — Adaptive feature fusion with residual connections and spectral refinement  
-- **SatFusion*** — PAN-guided multi-frame encoding for enhanced robustness to misalignment and noise
+- **SatFusion*** — PAN-guided multi-frame fusing for enhanced robustness to misalignment and noise
 ---
 
 ## 🧩 Architecture
 SatFusion consists of three core modules.  
 SatFusion* follows the same overall architecture, with an enhanced PAN-guided design in the multi-temporal fusion stage.
 
-### 1. Multi-Temporal Image Fusion (MTIF)
+### 1. Multi-Frame Image Fusion (MFIF)
 - **Inputs:** multiple LRMS images  
-- **Outputs:** temporally enhanced MS features  
+- **Outputs:** high-resolution multispectral features
 - **Implementation:** shared encoders, feature aggregation, and PixelShuffle-based decoding  
-- **SatFusion\*:** incorporates PAN-guided feature encoding to improve temporal alignment and stability
 ### 2. Multi-Source Image Fusion (MSIF)
-- **Inputs:** MTIF output + high-resolution PAN image  
+- **Inputs:** MFIF output + high-resolution PAN image  
 - **Outputs:** spatially enhanced MS feature map  
-- **Implementation:** PAN-guided spatial detail injection following pansharpening principles
+- **Implementation:** spatial detail injection following pansharpening principles
 ### 3. Fusion Composition Module
 - Combines multi-temporal and multi-source features  
 - Employs residual connections and 1×1 convolutions for adaptive spectral balancing
