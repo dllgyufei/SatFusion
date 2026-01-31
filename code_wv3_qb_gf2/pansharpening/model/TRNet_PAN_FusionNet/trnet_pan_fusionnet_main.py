@@ -108,10 +108,6 @@ class build_trnet_pan_fusionnet(PanSharpeningModel, name='TRNet_PAN_FusionNet'):
         else:
             spectral_num = 4
 
-
-        # loss = nn.MSELoss(reduction = 'mean').cuda()
-        # weight_dict = {'loss': 1}
-        # losses = {'loss': loss}
         # --------------------添加多种损失函数----------------------------------#
         loss = SatFusionLoss(
             w_mse=0.3,
