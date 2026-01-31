@@ -48,7 +48,7 @@ The complete WorldStrat dataset can be downloaded from [https://worldstrat.githu
 This repository provides the **complete experimental pipeline** for the **WorldStrat** dataset.  
 For the **WV3, QB, and GF2** datasets, we provide the **core implementation**, including the model architecture and training configurations, which are implemented based on the **DLPan-Toolbox** framework  
 ([https://github.com/liangjiandeng/DLPan-Toolbox.git](https://github.com/liangjiandeng/DLPan-Toolbox.git)).
----
+
 
 ## ⚙️ Quick Start
 
@@ -116,9 +116,11 @@ pip install -r requirements.txt
 To run the block of Pan-Mamba , Vision-Mamba is required.You can refer to the guidance in [Pan-Mamba](https://github.com/alexhe101/pan-mamba) and this blog [Install Vision Mamba on Linux](https://zhuanlan.zhihu.com/p/687359086).
 
 #### 🚀 Training, Validation & Testing
-Set the params *root* as your root dir of the dataset and *list_of_aios* as "pretrained_model/final_split.csv" in file *Train_Val_Test.py*.Run *Train_Val_Test.py* to train, validate, and test the model.    
-The process of training is visible on [Weights & Biases](wandb.ai).Replace the *project* and *entity* in *src/train.py*.For details, refer to [Weights & Biases quickstart guide](https://wandb.ai/quickstart?).
----
+
+Set the params `root` as your root dir of the dataset and `list_of_aios` as `"pretrained_model/final_split.csv"` in file `Train_Val_Test.py`. Run `Train_Val_Test.py` to train, validate, and test the model.
+
+The process of training is visible on [Weights & Biases](https://wandb.ai). Replace the `project` and `entity` in `src/train.py`. For details, refer to [Weights & Biases quickstart guide](https://wandb.ai/quickstart?).
+
 
 ### 🛰️ WV3 / QB / GF2 Datasets (Core Implementation)
 
