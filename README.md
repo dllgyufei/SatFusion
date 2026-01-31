@@ -124,7 +124,6 @@ The process of training is visible on [Weights & Biases](wandb.ai).Replace the *
 
 For the WV3, QB, and GF2 datasets, we provide the core implementation of **SatFusion / SatFusion***,
 including the model architecture and training configurations.
-
 The experiments are implemented based on the **DLPan-Toolbox** framework.
 Please refer to the official repository ([https://github.com/liangjiandeng/DLPan-Toolbox.git](https://github.com/liangjiandeng/DLPan-Toolbox.git)) for dataset preparation and execution details.
 
